@@ -95,3 +95,52 @@ boxplot(hotel$GuestSatisfactionScore, main = "Guest Satisfaction", col = "lavend
 boxplot(hotel$LoyaltyMembers, main = "Loyalty Members", col = "lightgray")
 boxplot(hotel$Revenue, main = "Revenue", col = "lightsalmon")
 par(mfrow = c(1, 1))
+
+# ==============================================================================
+# NORMALITY TESTS (HYPOTHESIS-BASED)
+# ==============================================================================
+
+# 14. Shapiro-Wilk test for normality on numeric variables
+cat("\nSHAPIRO-WILK NORMALITY TESTS\n")
+cat("\nRevenue:\n")
+print(shapiro.test(hotel$Revenue))
+
+cat("\nOccupancy Rate:\n")
+print(shapiro.test(hotel$OccupancyRate))
+
+cat("\nADR:\n")
+print(shapiro.test(hotel$ADR))
+
+cat("\nMarketing Spend:\n")
+print(shapiro.test(hotel$MarketingSpend))
+
+cat("\nGuest Satisfaction Score:\n")
+print(shapiro.test(hotel$GuestSatisfactionScore))
+
+cat("\nLoyalty Members:\n")
+print(shapiro.test(hotel$LoyaltyMembers))
+
+# 15. Q-Q plots for visual assessment of normality for numeric variables
+par(mfrow = c(2, 3))
+qqnorm(hotel$Revenue, main = "Q-Q Plot: Revenue")
+qqline(hotel$Revenue, col = "red", lwd = 2)
+
+qqnorm(hotel$OccupancyRate, main = "Q-Q Plot: Occupancy Rate")
+qqline(hotel$OccupancyRate, col = "red", lwd = 2)
+
+qqnorm(hotel$ADR, main = "Q-Q Plot: ADR")
+qqline(hotel$ADR, col = "red", lwd = 2)
+
+qqnorm(hotel$MarketingSpend, main = "Q-Q Plot: Marketing Spend")
+qqline(hotel$MarketingSpend, col = "red", lwd = 2)
+
+qqnorm(hotel$GuestSatisfactionScore, main = "Q-Q Plot: Guest Satisfaction")
+qqline(hotel$GuestSatisfactionScore, col = "red", lwd = 2)
+
+qqnorm(hotel$LoyaltyMembers, main = "Q-Q Plot: Loyalty Members")
+qqline(hotel$LoyaltyMembers, col = "red", lwd = 2)
+par(mfrow = c(1, 1))
+
+# ==============================================================================
+# DISTRIBUTION HISTOGRAMS
+# ==============================================================================
