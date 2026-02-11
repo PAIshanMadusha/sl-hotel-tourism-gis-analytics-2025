@@ -80,4 +80,18 @@ describe(hotel[, c(
   "Revenue"
 )])
 
+# ==============================================================================
+# OUTLIER DETECTION
+# ==============================================================================
 
+# 13. Boxplots for numeric variables to visually inspect outliers
+par(mfrow = c(2, 4))
+boxplot(hotel$RoomsAvailable, main = "Rooms Available", col = "lightblue")
+boxplot(hotel$OccupancyRate, main = "Occupancy Rate", col = "lightgreen")
+boxplot(hotel$ADR, main = "ADR", col = "lightyellow")
+boxplot(hotel$MarketingSpend, main = "Marketing Spend", col = "lightpink")
+boxplot(hotel$StaffCount, main = "Staff Count", col = "lightcyan")
+boxplot(hotel$GuestSatisfactionScore, main = "Guest Satisfaction", col = "lavender")
+boxplot(hotel$LoyaltyMembers, main = "Loyalty Members", col = "lightgray")
+boxplot(hotel$Revenue, main = "Revenue", col = "lightsalmon")
+par(mfrow = c(1, 1))
