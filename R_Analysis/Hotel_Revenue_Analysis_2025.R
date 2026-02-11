@@ -49,9 +49,9 @@ print(colSums(is.na(hotel)))
 
 # 8. Remove rows with missing values (if any)
 if (sum(is.na(hotel)) > 0) {
-  hotel <- na.omit(hotel)
-  cat("Rows with missing values removed!\n")
-  cat("New dataset size:", nrow(hotel), "rows\n")
+     hotel <- na.omit(hotel)
+     cat("Rows with missing values removed!\n")
+     cat("New dataset size:", nrow(hotel), "rows\n")
 }
 
 # 9. Check data types
@@ -60,7 +60,7 @@ print(sapply(hotel, class))
 
 # 10. Convert categorical variables to factors
 hotel$HotelQualityRank <- factor(hotel$HotelQualityRank,
-  levels = c("Low", "Medium", "High")
+     levels = c("Low", "Medium", "High")
 )
 
 # 11. Check for duplicates
@@ -70,14 +70,14 @@ cat("Number of duplicate rows:", sum(duplicated(hotel)), "\n")
 # 12. Descriptive statistics for numeric variables
 cat("\nDESCRIPTIVE STATISTICS\n")
 describe(hotel[, c(
-  "RoomsAvailable",
-  "OccupancyRate",
-  "ADR",
-  "MarketingSpend",
-  "StaffCount",
-  "GuestSatisfactionScore",
-  "LoyaltyMembers",
-  "Revenue"
+     "RoomsAvailable",
+     "OccupancyRate",
+     "ADR",
+     "MarketingSpend",
+     "StaffCount",
+     "GuestSatisfactionScore",
+     "LoyaltyMembers",
+     "Revenue"
 )])
 
 # ==============================================================================
@@ -144,3 +144,55 @@ par(mfrow = c(1, 1))
 # ==============================================================================
 # DISTRIBUTION HISTOGRAMS
 # ==============================================================================
+
+# 16. Histograms with density lines for numeric variables to visualize distributions
+par(mfrow = c(2, 3))
+
+hist(hotel$Revenue,
+     main = "Distribution of Hotel Revenue",
+     xlab = "Revenue (USD)",
+     col = "lightblue",
+     probability = TRUE
+)
+lines(density(hotel$Revenue), col = "red", lwd = 2)
+
+hist(hotel$OccupancyRate,
+     main = "Distribution of Occupancy Rate",
+     xlab = "Occupancy Rate",
+     col = "lightgreen",
+     probability = TRUE
+)
+lines(density(hotel$OccupancyRate), col = "red", lwd = 2)
+
+hist(hotel$ADR,
+     main = "Distribution of ADR",
+     xlab = "ADR (USD)",
+     col = "lightyellow",
+     probability = TRUE
+)
+lines(density(hotel$ADR), col = "red", lwd = 2)
+
+hist(hotel$MarketingSpend,
+     main = "Distribution of Marketing Spend",
+     xlab = "Marketing Spend (USD)",
+     col = "lightpink",
+     probability = TRUE
+)
+lines(density(hotel$MarketingSpend), col = "red", lwd = 2)
+
+hist(hotel$GuestSatisfactionScore,
+     main = "Distribution of Guest Satisfaction",
+     xlab = "Guest Satisfaction Score",
+     col = "lavender",
+     probability = TRUE
+)
+lines(density(hotel$GuestSatisfactionScore), col = "red", lwd = 2)
+
+hist(hotel$LoyaltyMembers,
+     main = "Distribution of Loyalty Members",
+     xlab = "Loyalty Members",
+     col = "lightgray",
+     probability = TRUE
+)
+lines(density(hotel$LoyaltyMembers), col = "red", lwd = 2)
+par(mfrow = c(1, 1))
