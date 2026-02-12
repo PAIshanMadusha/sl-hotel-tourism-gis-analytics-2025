@@ -308,3 +308,37 @@ plot(hotel$RoomsAvailable, hotel$Revenue,
      col = rgb(0.5, 0.5, 0, 0.5)
 )
 abline(lm(Revenue ~ RoomsAvailable, data = hotel), col = "navy", lwd = 2)
+
+# ==============================================================================
+# SIMPLE LINEAR REGRESSION MODELS
+# ==============================================================================
+
+# 26. MODEL 1: Revenue ~ Occupancy Rate
+cat("\nSIMPLE LINEAR REGRESSION: Revenue ~ OccupancyRate\n")
+model_occ <- lm(Revenue ~ OccupancyRate, data = hotel)
+summary(model_occ)
+
+# 27. MODEL 2: Revenue ~ ADR
+cat("\nSIMPLE LINEAR REGRESSION: Revenue ~ ADR\n")
+model_adr <- lm(Revenue ~ ADR, data = hotel)
+summary(model_adr)
+
+# 28. MODEL 3: Revenue ~ Marketing Spend
+cat("\nSIMPLE LINEAR REGRESSION: Revenue ~ MarketingSpend\n")
+model_marketing <- lm(Revenue ~ MarketingSpend, data = hotel)
+summary(model_marketing)
+
+# 29. MODEL 4: Revenue ~ Guest Satisfaction Score
+cat("\nSIMPLE LINEAR REGRESSION: Revenue ~ GuestSatisfactionScore\n")
+model_satisfaction <- lm(Revenue ~ GuestSatisfactionScore, data = hotel)
+summary(model_satisfaction)
+
+# 30. MODEL 5: Revenue ~ Loyalty Members
+cat("\nSIMPLE LINEAR REGRESSION: Revenue ~ LoyaltyMembers\n")
+model_loyalty <- lm(Revenue ~ LoyaltyMembers, data = hotel)
+summary(model_loyalty)
+
+# 31. MODEL 6: Revenue ~ Rooms Available
+cat("\nSIMPLE LINEAR REGRESSION: Revenue ~ RoomsAvailable\n")
+model_rooms <- lm(Revenue ~ RoomsAvailable, data = hotel)
+summary(model_rooms)
