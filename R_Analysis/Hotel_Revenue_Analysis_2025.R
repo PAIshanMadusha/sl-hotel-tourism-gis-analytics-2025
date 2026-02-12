@@ -196,3 +196,54 @@ hist(hotel$LoyaltyMembers,
 )
 lines(density(hotel$LoyaltyMembers), col = "red", lwd = 2)
 par(mfrow = c(1, 1))
+
+# ==============================================================================
+# CORRELATION ANALYSIS
+# ==============================================================================
+
+# 17. Correlation matrix for numeric variables to identify relationships between factors and revenue
+cat("\n=== CORRELATION MATRIX ===\n")
+cor_matrix <- cor(hotel[, c(
+     "RoomsAvailable", "OccupancyRate", "ADR",
+     "MarketingSpend", "StaffCount",
+     "GuestSatisfactionScore", "LoyaltyMembers", "Revenue"
+)])
+print(round(cor_matrix, 3))
+
+# 18. Visualize the correlation matrix using corrplot
+corrplot(cor_matrix,
+     method = "color",
+     type = "upper",
+     addCoef.col = "black",
+     tl.col = "black",
+     tl.srt = 45,
+     title = "Correlation Matrix - Hotel Revenue Factors",
+     mar = c(0, 0, 2, 0)
+)
+
+# 19. Individual Pearson correlation tests between Revenue and each numeric variable to assess the strength and significance of relationships
+cat("\nPEARSON CORRELATION TESTS\n")
+
+cat("\nRevenue vs Occupancy Rate:\n")
+print(cor.test(hotel$Revenue, hotel$OccupancyRate, method = "pearson"))
+
+cat("\nRevenue vs ADR:\n")
+print(cor.test(hotel$Revenue, hotel$ADR, method = "pearson"))
+
+cat("\nRevenue vs Marketing Spend:\n")
+print(cor.test(hotel$Revenue, hotel$MarketingSpend, method = "pearson"))
+
+cat("\nRevenue vs Guest Satisfaction Score:\n")
+print(cor.test(hotel$Revenue, hotel$GuestSatisfactionScore, method = "pearson"))
+
+cat("\nRevenue vs Loyalty Members:\n")
+print(cor.test(hotel$Revenue, hotel$LoyaltyMembers, method = "pearson"))
+
+cat("\nRevenue vs Rooms Available:\n")
+print(cor.test(hotel$Revenue, hotel$RoomsAvailable, method = "pearson"))
+
+cat("\nRevenue vs Staff Count:\n")
+print(cor.test(hotel$Revenue, hotel$StaffCount, method = "pearson"))
+
+
+
