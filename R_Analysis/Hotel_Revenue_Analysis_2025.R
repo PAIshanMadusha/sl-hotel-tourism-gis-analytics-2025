@@ -381,3 +381,63 @@ for (i in 1:length(vif_values)) {
      }
      cat(sprintf("%s: %.3f [%s]\n", names(vif_values)[i], vif_values[i], status))
 }
+
+# ==============================================================================
+# MODEL DIAGNOSTICS
+# ==============================================================================
+
+# 34. Diagnostic plots for the full multiple linear regression model to check assumptions
+par(mfrow = c(2, 2))
+plot(model_full)
+par(mfrow = c(1, 1))
+
+# 35. Calculate Cook's distance to identify influential observations in the full model
+cooksd <- cooks.distance(model_full)
+plot(cooksd,
+     type = "h",
+     main = "Cook's Distance - Influential Observations",
+     ylab = "Cook's Distance",
+     xlab = "Observation Index"
+)
+abline(h = 4 / nrow(hotel), col = "red", lty = 2)
+text(
+     x = 1:length(cooksd),
+     y = cooksd,
+     labels = ifelse(cooksd > 4 / nrow(hotel),
+          names(cooksd), ""
+     ),
+     pos = 3,
+     cex = 0.7
+)
+
+# ==============================================================================
+# RESIDUAL ANALYSIS
+# ==============================================================================
+
+# 36. Shapiro-Wilk test for normality of residuals from the full multiple linear regression model
+cat("\nNORMALITY TEST ON RESIDUALS\n")
+residuals_full <- residuals(model_full)
+shapiro_residuals <- shapiro.test(residuals_full)
+print(shapiro_residuals)
+
+# 37. Histogram of residuals with density line to visually assess the distribution of residuals from the full model
+hist(residuals_full,
+     main = "Distribution of Residuals",
+     xlab = "Residuals",
+     col = "lightblue",
+     probability = TRUE
+)
+lines(density(residuals_full), col = "red", lwd = 2)
+
+# 38. Q-Q plot of residuals to visually assess normality of residuals from the full model
+qqnorm(residuals_full, main = "Q-Q Plot: Residuals")
+qqline(residuals_full, col = "red", lwd = 2)
+
+# ==============================================================================
+# ANOVA TEST (MODEL SIGNIFICANCE)
+# ==============================================================================
+
+# 39. ANOVA test to compare the full multiple linear regression model against a null model (intercept only) to assess overall model significance
+cat("\nANOVA TEST (Overall Model Significance)\n")
+anova_result <- anova(model_full)
+print(anova_result)
