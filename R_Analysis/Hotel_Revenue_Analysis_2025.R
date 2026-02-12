@@ -342,3 +342,42 @@ summary(model_loyalty)
 cat("\nSIMPLE LINEAR REGRESSION: Revenue ~ RoomsAvailable\n")
 model_rooms <- lm(Revenue ~ RoomsAvailable, data = hotel)
 summary(model_rooms)
+
+# ==============================================================================
+# MULTIPLE LINEAR REGRESSION MODEL
+# ==============================================================================
+
+# 32. FULL MODEL: Revenue ~ All Significant Predictors
+cat("\nMULTIPLE LINEAR REGRESSION MODEL\n")
+model_full <- lm(
+     Revenue ~ RoomsAvailable + OccupancyRate + ADR +
+          MarketingSpend + StaffCount + GuestSatisfactionScore +
+          LoyaltyMembers,
+     data = hotel
+)
+summary(model_full)
+
+# ==============================================================================
+# MULTICOLLINEARITY CHECK
+# ==============================================================================
+
+# 33. Calculate Variance Inflation Factor (VIF) for each predictor in the full model
+cat("\nVARIANCE INFLATION FACTOR (VIF)\n")
+vif_values <- vif(model_full)
+print(vif_values)
+
+cat("\nVIF Interpretation:\n")
+cat("VIF < 5: No multicollinearity\n")
+cat("VIF 5-10: Moderate multicollinearity\n")
+cat("VIF > 10: High multicollinearity (problematic)\n\n")
+
+for (i in 1:length(vif_values)) {
+     if (vif_values[i] < 5) {
+          status <- "No multicollinearity"
+     } else if (vif_values[i] < 10) {
+          status <- "Moderate multicollinearity"
+     } else {
+          status <- "High multicollinearity"
+     }
+     cat(sprintf("%s: %.3f [%s]\n", names(vif_values)[i], vif_values[i], status))
+}
