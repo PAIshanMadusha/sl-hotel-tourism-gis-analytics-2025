@@ -1,0 +1,72 @@
+========================================
+MULTIPLE LINEAR REGRESSION MODEL SUMMARY
+========================================
+
+
+Call:
+lm(formula = Revenue ~ RoomsAvailable + OccupancyRate + ADR + 
+    MarketingSpend + StaffCount + GuestSatisfactionScore + LoyaltyMembers, 
+    data = hotel)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-181654  -21740   -3412   18016  236991 
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)            -7.840e+05  2.619e+04 -29.938   <2e-16 ***
+RoomsAvailable          2.129e+03  1.418e+02  15.009   <2e-16 ***
+OccupancyRate           5.764e+05  2.044e+04  28.198   <2e-16 ***
+ADR                     3.369e+03  1.099e+02  30.656   <2e-16 ***
+MarketingSpend          2.225e-01  3.753e-01   0.593   0.5535    
+StaffCount             -4.590e+02  6.247e+02  -0.735   0.4628    
+GuestSatisfactionScore -5.659e+03  1.839e+03  -3.078   0.0022 ** 
+LoyaltyMembers          4.027e+01  4.669e+00   8.625   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 42390 on 492 degrees of freedom
+Multiple R-squared:  0.9633,	Adjusted R-squared:  0.9628 
+F-statistic:  1844 on 7 and 492 DF,  p-value: < 2.2e-16
+
+
+========================================
+VARIANCE INFLATION FACTOR (VIF)
+========================================
+
+        RoomsAvailable          OccupancyRate                    ADR         MarketingSpend 
+             28.787849               1.343412               1.394674               1.006604 
+            StaffCount GuestSatisfactionScore         LoyaltyMembers 
+             22.490029               1.274929               8.156900 
+
+========================================
+ANOVA TEST
+========================================
+
+Analysis of Variance Table
+
+Response: Revenue
+                        Df     Sum Sq    Mean Sq   F value Pr(>F)    
+RoomsAvailable           1 1.7685e+13 1.7685e+13 9843.7018 <2e-16 ***
+OccupancyRate            1 2.3344e+12 2.3344e+12 1299.4036 <2e-16 ***
+ADR                      1 3.0362e+12 3.0362e+12 1690.0356 <2e-16 ***
+MarketingSpend           1 7.7212e+08 7.7212e+08    0.4298 0.5124    
+StaffCount               1 1.1823e+09 1.1823e+09    0.6581 0.4176    
+GuestSatisfactionScore   1 6.9901e+07 6.9901e+07    0.0389 0.8437    
+LoyaltyMembers           1 1.3364e+11 1.3364e+11   74.3849 <2e-16 ***
+Residuals              492 8.8390e+11 1.7965e+09                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+MODEL COMPARISON
+========================================
+
+               Model    R_squared Adj_R_squared      AIC      BIC      RMSE
+1     Occupancy Rate 9.517245e-02   0.093355531 13673.72 13686.37 208727.42
+2                ADR 1.328133e-01   0.131071931 13652.48 13665.12 204339.78
+3    Marketing Spend 2.700938e-05  -0.001980969 13723.71 13736.36 219427.34
+4 Guest Satisfaction 3.022811e-02   0.028280781 13708.38 13721.03 216088.37
+5    Loyalty Members 8.513788e-01   0.851080319 12770.55 12783.20  84593.51
+6    Rooms Available 7.345688e-01   0.734035840 13060.53 13073.17 113050.52
+7         Full Model 9.632854e-01   0.962763008 12083.44 12121.37  42045.18

@@ -441,3 +441,138 @@ qqline(residuals_full, col = "red", lwd = 2)
 cat("\nANOVA TEST (Overall Model Significance)\n")
 anova_result <- anova(model_full)
 print(anova_result)
+
+# ==============================================================================
+# MODEL COMPARISON
+# ==============================================================================
+
+# 40. Compare all regression models (simple and multiple) using R-squared, Adjusted R-squared, AIC, BIC, and RMSE to identify the best model for predicting hotel revenue
+cat("\nMODEL COMPARISON\n")
+
+# Create a list of all models for comparison
+models_list <- list(
+     model_occ,
+     model_adr,
+     model_marketing,
+     model_satisfaction,
+     model_loyalty,
+     model_rooms,
+     model_full
+)
+
+# Define model names for the comparison table
+model_names <- c(
+     "Occupancy Rate", "ADR", "Marketing Spend",
+     "Guest Satisfaction", "Loyalty Members",
+     "Rooms Available", "Full Model"
+)
+
+# Create a comparison table with R-squared, Adjusted R-squared, AIC, BIC, and RMSE for each model
+comparison_table <- data.frame(
+     Model = model_names,
+     R_squared = sapply(models_list, function(m) summary(m)$r.squared),
+     Adj_R_squared = sapply(models_list, function(m) summary(m)$adj.r.squared),
+     AIC = sapply(models_list, AIC),
+     BIC = sapply(models_list, BIC),
+     RMSE = sapply(models_list, function(m) sqrt(mean(residuals(m)^2)))
+)
+
+# Print the comparison table
+print(comparison_table)
+
+# Identify the best model based on R-squared, Adjusted R-squared, AIC, and BIC
+cat(
+     "\nBest Model by R-squared:",
+     model_names[which.max(comparison_table$R_squared)], "\n"
+)
+cat(
+     "Best Model by Adjusted R-squared:",
+     model_names[which.max(comparison_table$Adj_R_squared)], "\n"
+)
+cat(
+     "Best Model by AIC (lower is better):",
+     model_names[which.min(comparison_table$AIC)], "\n"
+)
+cat(
+     "Best Model by BIC (lower is better):",
+     model_names[which.min(comparison_table$BIC)], "\n"
+)
+
+# ==============================================================================
+# SAVE KEY PLOTS AND OUTPUTS
+# ==============================================================================
+
+# 41. Save Revenue vs Occupancy Rate plot with regression line
+png("../R_Analysis/Revenue_vs_Occupancy.png", width = 800, height = 600)
+plot(hotel$OccupancyRate, hotel$Revenue,
+     xlab = "Occupancy Rate",
+     ylab = "Revenue (USD)",
+     main = "Revenue vs Occupancy Rate",
+     pch = 19,
+     col = rgb(0, 0, 1, 0.5)
+)
+abline(lm(Revenue ~ OccupancyRate, data = hotel), col = "red", lwd = 2)
+dev.off()
+
+# 42. Save Revenue vs ADR plot with regression line
+png("../R_Analysis/Revenue_vs_ADR.png", width = 800, height = 600)
+plot(hotel$ADR, hotel$Revenue,
+     xlab = "Average Daily Rate (ADR)",
+     ylab = "Revenue (USD)",
+     main = "Revenue vs ADR",
+     pch = 19,
+     col = rgb(0, 0.5, 0, 0.5)
+)
+abline(lm(Revenue ~ ADR, data = hotel), col = "blue", lwd = 2)
+dev.off()
+
+# 43. Save the correlation matrix plot
+png("../R_Analysis/Correlation_Matrix.png", width = 1000, height = 1000)
+corrplot(cor_matrix,
+     method = "color",
+     type = "upper",
+     addCoef.col = "black",
+     tl.col = "black",
+     tl.srt = 45,
+     title = "Correlation Matrix - Hotel Revenue Factors",
+     mar = c(0, 0, 2, 0)
+)
+dev.off()
+
+# 44. Save diagnostic plots for the full multiple linear regression model
+png("../R_Analysis/Model_Diagnostics.png", width = 1200, height = 1200)
+par(mfrow = c(2, 2))
+plot(model_full)
+par(mfrow = c(1, 1))
+dev.off()
+
+# 45. Save the model comparison table to a CSV file for reporting
+write.csv(comparison_table,
+     "../R_Analysis/Model_Comparison.csv",
+     row.names = FALSE
+)
+
+# 46. Save the full model summary, VIF values, ANOVA results, and model comparison table to a text file for documentation
+sink("../R_Analysis/Full_Model_Summary.txt")
+cat("========================================\n")
+cat("MULTIPLE LINEAR REGRESSION MODEL SUMMARY\n")
+cat("========================================\n\n")
+summary(model_full)
+cat("\n========================================\n")
+cat("VARIANCE INFLATION FACTOR (VIF)\n")
+cat("========================================\n\n")
+print(vif_values)
+cat("\n========================================\n")
+cat("ANOVA TEST\n")
+cat("========================================\n\n")
+print(anova_result)
+cat("\n========================================\n")
+cat("MODEL COMPARISON\n")
+cat("========================================\n\n")
+print(comparison_table)
+sink()
+
+# ==============================================================================
+# ANALYSIS COMPLETED SUCCESSFULLY
+# ==============================================================================
+cat("\nANALYSIS COMPLETED SUCCESSFULLY!\n")
