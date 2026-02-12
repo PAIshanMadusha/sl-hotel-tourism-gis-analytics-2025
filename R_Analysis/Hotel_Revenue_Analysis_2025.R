@@ -245,5 +245,66 @@ print(cor.test(hotel$Revenue, hotel$RoomsAvailable, method = "pearson"))
 cat("\nRevenue vs Staff Count:\n")
 print(cor.test(hotel$Revenue, hotel$StaffCount, method = "pearson"))
 
+# ==============================================================================
+# SCATTER PLOTS WITH REGRESSION LINES
+# ==============================================================================
 
+# 20. SCATTER PLOT: Revenue vs Occupancy Rate
+plot(hotel$OccupancyRate, hotel$Revenue,
+     xlab = "Occupancy Rate",
+     ylab = "Revenue (USD)",
+     main = "Revenue vs Occupancy Rate",
+     pch = 19,
+     col = rgb(0, 0, 1, 0.5)
+)
+abline(lm(Revenue ~ OccupancyRate, data = hotel), col = "red", lwd = 2)
 
+# 21. SCATTER PLOT: Revenue vs ADR
+plot(hotel$ADR, hotel$Revenue,
+     xlab = "Average Daily Rate (ADR)",
+     ylab = "Revenue (USD)",
+     main = "Revenue vs ADR",
+     pch = 19,
+     col = rgb(0, 0.5, 0, 0.5)
+)
+abline(lm(Revenue ~ ADR, data = hotel), col = "blue", lwd = 2)
+
+# 22. SCATTER PLOT: Revenue vs Marketing Spend
+plot(hotel$MarketingSpend, hotel$Revenue,
+     xlab = "Marketing Spend (USD)",
+     ylab = "Revenue (USD)",
+     main = "Revenue vs Marketing Spend",
+     pch = 19,
+     col = rgb(0.5, 0, 0.5, 0.5)
+)
+abline(lm(Revenue ~ MarketingSpend, data = hotel), col = "darkgreen", lwd = 2)
+
+# 23. SCATTER PLOT: Revenue vs Guest Satisfaction
+plot(hotel$GuestSatisfactionScore, hotel$Revenue,
+     xlab = "Guest Satisfaction Score",
+     ylab = "Revenue (USD)",
+     main = "Revenue vs Guest Satisfaction Score",
+     pch = 19,
+     col = rgb(1, 0.5, 0, 0.5)
+)
+abline(lm(Revenue ~ GuestSatisfactionScore, data = hotel), col = "purple", lwd = 2)
+
+# 24. SCATTER PLOT: Revenue vs Loyalty Members
+plot(hotel$LoyaltyMembers, hotel$Revenue,
+     xlab = "Loyalty Members",
+     ylab = "Revenue (USD)",
+     main = "Revenue vs Loyalty Members",
+     pch = 19,
+     col = rgb(0, 0.5, 0.5, 0.5)
+)
+abline(lm(Revenue ~ LoyaltyMembers, data = hotel), col = "brown", lwd = 2)
+
+# 25. SCATTER PLOT: Revenue vs Rooms Available
+plot(hotel$RoomsAvailable, hotel$Revenue,
+     xlab = "Rooms Available",
+     ylab = "Revenue (USD)",
+     main = "Revenue vs Rooms Available",
+     pch = 19,
+     col = rgb(0.5, 0.5, 0, 0.5)
+)
+abline(lm(Revenue ~ RoomsAvailable, data = hotel), col = "navy", lwd = 2)
