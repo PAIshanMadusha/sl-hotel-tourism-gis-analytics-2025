@@ -202,7 +202,7 @@ par(mfrow = c(1, 1))
 # ==============================================================================
 
 # 17. Correlation matrix for numeric variables to identify relationships between factors and revenue
-cat("\n=== CORRELATION MATRIX ===\n")
+cat("\nCORRELATION MATRIX\n")
 cor_matrix <- cor(hotel[, c(
      "RoomsAvailable", "OccupancyRate", "ADR",
      "MarketingSpend", "StaffCount",
