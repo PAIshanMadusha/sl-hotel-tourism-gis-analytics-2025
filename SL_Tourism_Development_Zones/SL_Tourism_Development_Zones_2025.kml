@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="document">
+	<name>SL_Tourism_Development_Zones_2025</name>
+	<gx:CascadingStyle kml:id="__managed_style_1DB75BF5DA3D91C355C3">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_2818DADDAB3D91C355C3">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0EA03D86BF3D91C355C3">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1DB75BF5DA3D91C355C3</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2818DADDAB3D91C355C3</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="0908DDB6C03D91C18763">
+		<name>Southern Coastal Tourism Zone</name>
+		<description><![CDATA[<div>District: Galle<br></div><div>Zone Type: Coastal Tourism Development Zone<br></div>]]></description>
+		<LookAt>
+			<longitude>80.22899781675939</longitude>
+			<latitude>6.032741815964171</latitude>
+			<altitude>1.414648398423424e-09</altitude>
+			<heading>359.4993441149858</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>7223.816215008467</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0EA03D86BF3D91C355C3</styleUrl>
+		<Point>
+			<coordinates>80.21594650136163,6.031148869345157,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02FF0A6CFD3D91CDD5BF">
+		<name>Eastern Coastal Tourism Zone</name>
+		<description><![CDATA[<div>District:&nbsp;Trincomalee<br></div><div>Zone Type: Coastal Tourism Development Zone<br></div>]]></description>
+		<LookAt>
+			<longitude>81.21249680074627</longitude>
+			<latitude>8.586590477829601</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>5873.578243490821</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0EA03D86BF3D91C355C3</styleUrl>
+		<Point>
+			<coordinates>81.21480260633474,8.587063145154453,0.0002737769045468852</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A7F1C8BCA3D91CFCD57">
+		<name>Western Tourism Hub</name>
+		<description><![CDATA[<div>District:&nbsp;Colombo<br></div><div>Zone Type: Coastal/Urban Tourism Development Zone<br></div><div><br></div>]]></description>
+		<LookAt>
+			<longitude>79.85620627305492</longitude>
+			<latitude>6.921839598870358</latitude>
+			<altitude>-1.414648398423424e-09</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>18483.12134916391</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0EA03D86BF3D91C355C3</styleUrl>
+		<Point>
+			<coordinates>79.86131542381202,6.927348538415297,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0CA2E559F23D91D1FE36">
+		<name>Hill Country Tourism Zone</name>
+		<description><![CDATA[<div>District: Nuwara Eliya<br></div><div>Zone Type:&nbsp; Hill Tourism Development Zone<br></div><div><br></div>]]></description>
+		<LookAt>
+			<longitude>80.78094699999998</longitude>
+			<latitude>6.9513662</latitude>
+			<altitude>-7.073241992117119e-10</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>20372.81523730406</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0EA03D86BF3D91C355C3</styleUrl>
+		<Point>
+			<coordinates>80.76987096908778,6.961685350410496,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="08AEB855C73D91DAD1FE">
+		<name>Cultural Triangle Tourism Zone</name>
+		<description><![CDATA[<div>District: Anuradhapura<br></div><div>Zone Type: Cultural Tourism Development Zone<br></div>]]></description>
+		<LookAt>
+			<longitude>80.40780055863027</longitude>
+			<latitude>8.316044868933524</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>4512.61346687259</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0EA03D86BF3D91C355C3</styleUrl>
+		<Point>
+			<coordinates>80.40374187888769,8.311195677119695,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0108ED555B3D91DDD9AC">
+		<name>Northern Tourism Zone</name>
+		<description><![CDATA[<div>District: Jaffna<br></div><div>Zone Type: Heritage Tourism Development Zone<br></div>]]></description>
+		<LookAt>
+			<longitude>80.05241626179908</longitude>
+			<latitude>9.647738032733447</latitude>
+			<altitude>-7.073241992117119e-10</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>40839.08465301975</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0EA03D86BF3D91C355C3</styleUrl>
+		<Point>
+			<coordinates>80.01083999464775,9.661848824389921,0.0003114617232324868</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
